@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>senio_robot</name>
+  <version>0.0.0</version>
+  <description>The senio_robot meta package</description>
+
+  <maintainer email="mik-p@github.com">mik-p</maintainer>
+
+  <license>MIT</license>
+
+  <author email="mik-p@github.com">mik-p</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>senio_description</exec_depend>
+  <exec_depend>senio_msgs</exec_depend>
+  <exec_depend>senio_paper</exec_depend>
+  <exec_depend>senio_hardware</exec_depend>
+  <exec_depend>senio_controllers</exec_depend>
+  <exec_depend>senio_deployment</exec_depend>
+
+  <export>
+    <metapackage />
+  </export>
+</package>

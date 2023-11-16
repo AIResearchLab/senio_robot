@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>senio_deployment</name>
+  <version>0.0.1</version>
+  <description>The senio_deployment package</description>
+
+  <maintainer email="mik-p@github.com">mik-p</maintainer>
+
+  <license>MIT</license>
+
+  <author email="mik-p@github.com">mik-p</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>senio_description</exec_depend>
+  <exec_depend>senio_msgs</exec_depend>
+  <exec_depend>senio_paper</exec_depend>
+  <exec_depend>senio_hardware</exec_depend>
+  <exec_depend>senio_controllers</exec_depend>
+
+  <export>
+  </export>
+</package>
