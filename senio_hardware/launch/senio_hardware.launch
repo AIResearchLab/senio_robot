@@ -1,16 +1,15 @@
+<?xml version="1.0"?>
 <launch>
 
   <arg name="namespace" default="senio_hardware" />
 
-  <rosparam file="$(find senio_hardware)/config/senio.yaml" command="load" ns="$(arg namespace)" />
+  <!-- load robot -->
+  <include filename="$(find senio_description)/launch/robot.launch" />
 
-  <rosparam file="$(find senio_hardware)/config/controllers.yaml" command="load" ns="$(arg namespace)" />
+  <!-- load control config -->
+  <rosparam file="$(find senio_hardware)/config/control.yaml" command="load" ns="$(arg namespace)" />
 
+  <!-- start hw interface -->
   <node name="$(arg namespace)" pkg="senio_hardware" type="senio_hardware_node" output="screen" />
-
-  <!-- load the controllers -->
-  <node name="position_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="$(arg namespace)" args="controller/joint_position_controller"/>
-
-  <node name="joint_state_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="$(arg namespace)" args="controller/joint_state_controller" />
 
 </launch>

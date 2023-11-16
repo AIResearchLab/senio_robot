@@ -2,7 +2,7 @@
 #include <controller_manager/controller_manager.h>
 #include <hardware_interface/joint_command_interface.h>
 #include <hardware_interface/joint_state_interface.h>
-#include "senio_hardware/senio_hardware_interface.hpp"
+#include <senio_hardware/senio_hardware_interface.hpp>
 
 using namespace senio_hardware;
 
@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 
   controller_manager::ControllerManager cm(&hw, robot_nh);
 
-  ros::AsyncSpinner cm_spinner(0); // arg is the number of threads to use (0 is all of them)
+  ros::AsyncSpinner cm_spinner(1); // arg is the number of threads to use (0 is all of them)
   cm_spinner.start();
 
   // get the config rate setting or use 1Hz default

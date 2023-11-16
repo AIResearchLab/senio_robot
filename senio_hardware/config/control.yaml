@@ -1,15 +1,36 @@
+# control loop frequency
 rate_hertz: 25
 
+# ambulant joints
 joints:
-  - joint01
-  - joint02
-  - joint03
-  # - joint04
-  # - joint05
-  # - joint06
-  # - joint07
-  # - joint08
-  # - joint09
-  # - joint10
-  # - joint11
-  # - joint12
+  - lf_shoulder_joint
+  - lf_elbow_joint
+  - lf_wrist_joint
+  - rf_shoulder_joint
+  - rf_elbow_joint
+  - rf_wrist_joint
+  - lm_shoulder_joint
+  - lm_elbow_joint
+  - lm_wrist_joint
+  - rm_shoulder_joint
+  - rm_elbow_joint
+  - lb_shoulder_joint
+  - lb_elbow_joint
+  - lb_wrist_joint
+  - rb_shoulder_joint
+  - rb_elbow_joint
+  - rb_wrist_joint
+
+# joint configuration
+lf_shoulder_joint:
+  simulated: false
+  bus_id: 1
+
+lf_elbow_joint:
+  bus_id: 2
+
+lf_wrist_joint:
+  bus_id: 3
+
+rf_shoulder_joint:
+  bus_id: 4

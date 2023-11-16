@@ -2,15 +2,17 @@
 <launch>
   <arg name="control_type" default="position" />
 
-  <rosparam file="$(find senio_controllers)/config/controllers.yaml" command="load" ns="senio_hw"/>
+  <!-- load controller config -->
+  <rosparam file="$(find senio_controllers)/config/controllers.yaml" command="load" ns="senio_hardware"/>
 
   <!-- state controller -->
-  <node name="state_controller_spawner" pkg="controller_manager" type="spawner" ns="senio_hw" args="
+  <node name="state_controller_spawner" pkg="controller_manager" type="spawner" ns="senio_hardware" args="
     controllers/joint_state
   "/>
 
+  <!-- joint controllers -->
   <group if="$(arg control_type) == position">
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="senio_hw" args="
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="senio_hardware" args="
       controllers/lf_shoulder_position
       controllers/lm_shoulder_position
       controllers/lb_shoulder_position
