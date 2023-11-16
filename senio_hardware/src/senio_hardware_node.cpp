@@ -2,18 +2,18 @@
 #include <controller_manager/controller_manager.h>
 #include <hardware_interface/joint_command_interface.h>
 #include <hardware_interface/joint_state_interface.h>
-#include "sence_hardware/sence_hardware_interface.hpp"
+#include "senio_hardware/senio_hardware_interface.hpp"
 
-using namespace sence_hardware;
+using namespace senio_hardware;
 
 int main(int argc, char** argv) {
 
-  ros::init(argc, argv, "sence_hardware_node");
+  ros::init(argc, argv, "senio_hardware_node");
 
   ros::NodeHandle root_nh; // root namespace
-  ros::NodeHandle robot_nh("~"); // sence namespace
+  ros::NodeHandle robot_nh("~"); // senio namespace
 
-  SenceHardwareInterface hw(robot_nh);
+  SenioHardwareInterface hw(robot_nh);
   if (!hw.init(root_nh, robot_nh)) {
     ROS_INFO("Failed to initialize!");
     return 1;

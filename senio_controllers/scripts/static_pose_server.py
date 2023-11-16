@@ -10,8 +10,8 @@ from control_msgs.msg import FollowJointTrajectoryGoal
 from trajectory_msgs.msg import JointTrajectoryPoint
 from std_msgs.msg import String
 
-from senio_controllers.msg import StaticPoseAction
-from senio_controllers.msg import StaticPoseGoal
+from senio_msgs.msg import StaticPoseAction
+from senio_msgs.msg import StaticPoseGoal
 
 
 # a class to perform a sequence of poses

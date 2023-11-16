@@ -8,8 +8,6 @@ import actionlib
 from cartesian_control_msgs.msg import FollowCartesianTrajectoryAction
 from cartesian_control_msgs.msg import FollowCartesianTrajectoryGoal
 from cartesian_control_msgs.msg import CartesianTrajectoryPoint
-from geometry_msgs.msg import Pose
-from sensor_msgs.msg import JointState
 from urdf_parser_py.urdf import URDF
 from kdl_parser_py.urdf import treeFromUrdfModel
 import PyKDL as kdl

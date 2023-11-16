@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace sence_hardware {
+namespace senio_hardware {
 
 struct Joint {
   int id;
@@ -13,4 +13,4 @@ struct Joint {
   double cmd; //position control
 };
 
-} // namespace sence_hardware
+} // namespace senio_hardware

@@ -1,21 +1,20 @@
 <?xml version="1.0"?>
 <package format="2">
 
-  <name>sence_hardware</name>
+  <name>senio_hardware</name>
   <version>0.0.1</version>
   <description>
-    The sence_hardware package.
-    
-    This is a clone/rewrite for testing purposes.
+    The senio_hardware package
   </description>
 
   <maintainer email="u3243222@uni.canberra.edu.au">Ben Worth</maintainer>
 
-  <license>todo</license>
+  <license>MIT</license>
 
   <author email="u3243222@uni.canberra.edu.au">Ben Worth</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+
   <depend>roscpp</depend>
   <depend>rospy</depend>
   <depend>std_msgs</depend>

@@ -1,7 +1,7 @@
-#include "sence_hardware/sence_hardware_interface.hpp"
-#include "sence_hardware/joint.hpp"
+#include "senio_hardware/senio_hardware_interface.hpp"
+#include "senio_hardware/joint.hpp"
 
-namespace sence_hardware
+namespace senio_hardware
 {
 
   namespace
@@ -30,7 +30,7 @@ namespace sence_hardware
     uint32_t rad2Tick(double rad) { return (rad + M_PI) * (4096 / (2 * M_PI)); }
   }
 
-  SenceHardwareInterface::SenceHardwareInterface(ros::NodeHandle &robot_nh) :
+  SenioHardwareInterface::SenioHardwareInterface(ros::NodeHandle &robot_nh) :
     joints(init_joints(robot_nh)),
     portHandler(dynamixel::PortHandler::getPortHandler(DEVICENAME)),
     packetHandler(dynamixel::PacketHandler::getPacketHandler(PROTOCOL_VERSION)),
@@ -44,7 +44,7 @@ namespace sence_hardware
   {
   }
 
-  SenceHardwareInterface::~SenceHardwareInterface()
+  SenioHardwareInterface::~SenioHardwareInterface()
   {
     printf("bye-bye...");
     // Disable all dynamixels Torque
@@ -69,7 +69,7 @@ namespace sence_hardware
     }
   }
 
-  bool SenceHardwareInterface::init(ros::NodeHandle &root_nh, ros::NodeHandle &robot_nh)
+  bool SenioHardwareInterface::init(ros::NodeHandle &root_nh, ros::NodeHandle &robot_nh)
   {
 
     for (auto &joint : joints)
@@ -147,7 +147,7 @@ namespace sence_hardware
     return true;
   }
 
-  void SenceHardwareInterface::read(const ros::Time &time, const ros::Duration &period)
+  void SenioHardwareInterface::read(const ros::Time &time, const ros::Duration &period)
   {
     // ROS_INFO("now reading...");
     ros::Duration second(1);
@@ -189,7 +189,7 @@ namespace sence_hardware
     dxl_comm_result = COMM_SUCCESS;
   }
 
-  void SenceHardwareInterface::write(const ros::Time &time, const ros::Duration &period)
+  void SenioHardwareInterface::write(const ros::Time &time, const ros::Duration &period)
   {
     // ROS_INFO("now writing...");
 
@@ -230,4 +230,4 @@ namespace sence_hardware
     // Clear syncwrite parameter storage
     groupSyncWrite.clearParam();
   }
-} // namespace sence_hardware
+} // namespace senio_hardware

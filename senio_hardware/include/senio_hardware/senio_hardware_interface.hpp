@@ -26,17 +26,17 @@
 #define TORQUE_ON 1
 #define TORQUE_OFF 0
 
-#include "sence_hardware/joint.hpp"
+#include "senio_hardware/joint.hpp"
 
-namespace sence_hardware
+namespace senio_hardware
 {
 
-  class SenceHardwareInterface : public hardware_interface::RobotHW
+  class SenioHardwareInterface : public hardware_interface::RobotHW
   {
 
   public:
-    SenceHardwareInterface(ros::NodeHandle &robot_nh);
-    ~SenceHardwareInterface();
+    SenioHardwareInterface(ros::NodeHandle &robot_nh);
+    ~SenioHardwareInterface();
 
     bool init(ros::NodeHandle &root_nh, ros::NodeHandle &robot_nh) override;
     void read(const ros::Time &time, const ros::Duration &period) override;
@@ -61,4 +61,4 @@ namespace sence_hardware
     uint8_t param_goal_position[4];
   };
 
-} // namespace sence_hardware
+} // namespace senio_hardware
