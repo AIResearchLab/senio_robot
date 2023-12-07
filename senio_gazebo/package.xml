@@ -12,9 +12,8 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <exec_depend>senio_description</exec_depend>
   <exec_depend>senio_msgs</exec_depend>
-  <exec_depend>senio_paper</exec_depend>
+  <exec_depend>senio_description</exec_depend>
   <exec_depend>senio_controllers</exec_depend>
 
   <export>
