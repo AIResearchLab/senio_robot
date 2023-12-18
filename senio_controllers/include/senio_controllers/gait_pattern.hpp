@@ -38,7 +38,11 @@ public:
     return true;
   }
 
-  /***/
+  /**
+   * @brief get the transform that represents the footprint frame based on the current contact points
+   *
+   * @return const geometry_msgs::Transform
+   */
   const geometry_msgs::Transform footprint_transform()
   {
     geometry_msgs::Transform tf;

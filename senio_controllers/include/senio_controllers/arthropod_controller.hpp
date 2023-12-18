@@ -122,7 +122,7 @@ public:
     _gait_predictor = std::make_unique<GaitPredictor>(controller_nh);
 
     // if the gait members are not the same size as the legs array then error
-    if (!_gait_predictor->validate())
+    if (!_gait_predictor->validate(legs.size()))
     {
       ROS_ERROR("Gait pattern doesn't match legs count");
       return false;
@@ -307,8 +307,9 @@ private:
     if (_pub_ground_est && _pub_ground_est->trylock())
     {
       // get current contacts
-      const std::vector<ros_controllers_cartesian::CartesianState> contacts =
-          _gait_predictor->current_contacts(current_ee_locs());
+      // const std::vector<ros_controllers_cartesian::CartesianState> contacts =
+      //     _gait_predictor->current_contacts(current_ee_locs());
+      const std::vector<ros_controllers_cartesian::CartesianState> contacts = _gait_predictor->current_contacts();
 
       // convert to points
       std::vector<geometry_msgs::Point> contact_points;

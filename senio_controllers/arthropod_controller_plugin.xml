@@ -1,3 +1,11 @@
 <?xml version="1.0"?>
-<library path="">
+<library path="lib/libsenio_controllers">
+    <class name="position_controllers/ArthropodCartesianTrajectoryController"
+         type="position_controllers::ArthropodCartesianTrajectoryController"
+         base_class_type="controller_interface::ControllerBase">
+    <description>
+        ArthropodCartesianTrajectoryController is a controller that takes a pose and twist as input
+        and sends commands to the legs of the robot to achieve the desired pose and gait
+    </description>
+  </class>
 </library>

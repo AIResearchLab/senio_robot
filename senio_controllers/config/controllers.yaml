@@ -102,4 +102,78 @@ controllers:
       - lf_elbow_joint
       - lf_wrist_joint
 
-  # custom controller
+  # custom arthropod controller
+  arthropod_controller:
+    type: "arthropod_controllers/ArthropodController"
+
+    robot_base_frame: "base_link"
+    odom_frame: "odom"
+    robot_footprint_frame: "base_footprint"
+
+    publish_rate: 50 # hz
+    publish_cmd: true # default: false
+    enable_odom_tf: true # default: true
+
+    # legs
+    legs:
+      - "left_front"
+      - "right_front"
+      - "left_middle"
+      - "right_middle"
+      - "left_back"
+      - "right_back"
+
+    # leg controllers
+    left_front:
+      base: "base_link"
+      tip: "lf_wrist_contact"
+
+      joints:
+        - lf_shoulder_joint
+        - lf_elbow_joint
+        - lf_wrist_joint
+
+    right_front:
+      base: "base_link"
+      tip: "rf_wrist_contact"
+
+      joints:
+        - rf_shoulder_joint
+        - rf_elbow_joint
+        - rf_wrist_joint
+
+    left_middle:
+      base: "base_link"
+      tip: "lm_wrist_contact"
+
+      joints:
+        - lm_shoulder_joint
+        - lm_elbow_joint
+        - lm_wrist_joint
+
+    right_middle:
+      base: "base_link"
+      tip: "rm_wrist_contact"
+
+      joints:
+        - rm_shoulder_joint
+        - rm_elbow_joint
+        - rm_wrist_joint
+
+    left_back:
+      base: "base_link"
+      tip: "lb_wrist_contact"
+
+      joints:
+        - lb_shoulder_joint
+        - lb_elbow_joint
+        - lb_wrist_joint
+
+    right_back:
+      base: "base_link"
+      tip: "rb_wrist_contact"
+
+      joints:
+        - rb_shoulder_joint
+        - rb_elbow_joint
+        - rb_wrist_joint

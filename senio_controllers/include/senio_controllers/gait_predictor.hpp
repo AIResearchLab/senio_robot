@@ -72,7 +72,7 @@ public:
     for (auto& leg : _gait_members)
     {
       const ros_controllers_cartesian::CartesianState predicted_state;
-      leg.set_prediction(predicted_state);
+      leg.state(predicted_state);
     }
   }
 

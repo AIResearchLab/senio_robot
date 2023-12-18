@@ -112,7 +112,11 @@ public:
       return gait_phase::unbound;
     }
 
-    /***/
+    /**
+     * @brief get the rotation matrix for the gait frame
+     *
+     * @return const Eigen::Matrix3d
+     */
     const Eigen::Matrix3d frame()
     {
       // create new coordinate bases using the contact segment direction and the upswing maximum
@@ -140,6 +144,15 @@ public:
   virtual void compute_key_points(const geometry_msgs::Pose& stroke_start, const double& stroke_length,
                                   const double& stroke_height) = 0;
 
+  /**
+   * Calculates the gait phase based on the state.
+   *
+   * @param state The state of the robot represented by a geometry_msgs::Vector3 object.
+   *
+   * @return The gait phase computed based on the state.
+   *
+   * @throws None
+   */
   const gait_phase phase(const geometry_msgs::Vector3& state) const
   {
     return _state->phase(Eigen::Vector3d(state.x, state.y, state.z));
@@ -224,8 +237,8 @@ public:
     const Eigen::Matrix3d gait_frame = _state->frame();
 
     // get the contact point and shift up and ahead by a small amount
-    Eigen::Vector3d debounce_point =
-        _gait_key_points[2] + (debounce_length * (Eigen::Vector3d::UnitX() + Eigen::Vector3d::UnitZ()) * gait_frame);
+    const Eigen::Vector3d debounce_point =
+        _gait_key_points[2] + (debounce_length * (gait_frame * (Eigen::Vector3d::UnitX() + Eigen::Vector3d::UnitZ())));
 
     // add a debounce key point before the contact point
     _gait_key_points.insert(_gait_key_points.end() - 2, debounce_point);
@@ -256,11 +269,11 @@ public:
           (_gait_key_points[i + 2] - _gait_key_points[i + 1]) - (_gait_key_points[i + 1] - _gait_key_points[i]);
 
       // if the magnitude is greater than the maximum then insert a new point that reduces the magnitude
-      if (second_derivative.norm() > dx_max)
+      if (second_derivative.norm() > ddx_max)
       {
         // insert a new point that reduces the magnitude
         _gait_key_points.insert(_gait_key_points.begin() + i + 1,
-                                _gait_key_points[i + 1] + (dx_max / second_derivative.norm()) * second_derivative);
+                                _gait_key_points[i + 1] + (ddx_max / second_derivative.norm()) * second_derivative);
       }
     }
 
@@ -268,7 +281,7 @@ public:
   }
 
 protected:
-  double dx_max;
+  double ddx_max;
 };
 
 }  // namespace senio_controllers
